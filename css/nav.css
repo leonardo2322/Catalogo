@@ -1,0 +1,53 @@
+/* estilos generales */
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+h1{
+    font-size: 1.5rem;
+    color: #fff;
+
+}
+h2{
+    font-size: 0.7rem;
+    color: #fff;
+}
+/* seccion hero */
+.hero{
+    background-color: rgba(0, 0, 0, 0.9);
+    min-height: 300px;
+    text-align: center;
+    z-index: 2;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    
+
+}
+
+.hero-principal .imagen-portada{
+    background-size: cover;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    
+}
+
+.hero-principal{
+    padding: 3rem;
+}
+.accordion{
+    width: 90%;
+
+}
+
+@media screen and (max-width: 373px){
+    h1{
+        font-size: 1rem;
+    
+    }
+    h2{
+        font-size: 0.7rem;
+    }
+}

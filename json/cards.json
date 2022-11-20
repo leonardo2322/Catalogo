@@ -1,0 +1,17 @@
+[
+    { "Bandejas":{
+        "Res":{"acompanantes":"arroz, ensalada, tajada de maduro, papas Fritas","bebidaysopa":"Sopa y Sobre mesa","imagen":"img/232-image_web.jpg","titulo":"Res"},
+
+
+        "Cerdo":{"acompanantes":"arroz, ensalada, tajada de maduro, papas Fritas","bebidaysopa":"Sopa y Sobre mesa","imagen":"img/istockphoto-1156689466-612x612.jpg","titulo":"Cerdo"},
+
+
+        "chicharron":{"acompanantes":"arroz, ensalada, tajada de maduro, papas Fritas","bebidaysopa":"Sopa y Sobre mesa","imagen":"img/istockphoto-1156689466-612x612.jpg","titulo":"Chicharron"},
+
+
+        "Pechuga":{"acompanantes":"arroz, ensalada, tajada de maduro, papas Fritas","bebidaysopa":"Sopa y Sobre mesa","imagen":"img/istockphoto-1156689466-612x612.jpg","titulo":"Pechuga"},
+        "SobreBarriga":{"acompanantes":"arroz, ensalada, tajada de maduro, papas y yuca sudada","bebidaysopa":"Sopa y Sobre mesa","imagen":"img/istockphoto-1156689466-612x612.jpg","titulo":"Cerdo"}
+        }
+    }
+    
+]
