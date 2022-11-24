@@ -1,4 +1,16 @@
 /* estilos generales */
+#shop{
+    position: absolute;
+    right: 20%;
+}
+.offcanvas{
+    --bs-offcanvas-width:300px;
+}
+
+.offcanvas-backdrop{
+    min-width: 350px;
+    min-height: 2040px;
+}
 section{
     display: flex;
     flex-direction: column;
@@ -106,5 +118,18 @@ h2{
     .test p{
         overflow-y: visible;
         overflow: visible;
+    }
+}
+
+@media screen and (max-width: 317px){
+    #shop{
+        right: -10%;
+    }
+
+}
+
+@media  screen and (min-width: 460px) {
+    #shop{
+        right: 15%;
     }
 }
