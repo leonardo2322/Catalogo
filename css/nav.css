@@ -17,7 +17,8 @@ h2{
 }
 /* seccion hero */
 .hero{
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: #1b1b32;
+    min-width: 350px;
     min-height: 300px;
     text-align: center;
     z-index: 2;
@@ -42,6 +43,49 @@ h2{
 
 }
 
+.about-container{
+    height: 500px;
+    padding: 10px;
+    text-align: center;
+    background-color: #1b1b32;
+}
+.about-container h1,p{
+    color: #fff
+    ;
+}
+.card-text{
+    color: #000;
+}
+.test{
+    
+    /* /* width: 100px; */
+    min-width: 55px;
+    height: 120px;
+}
+.test img{
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #c62d8f ;
+}
+.test p{
+    color: #000;
+    font-size: 12px;
+    /* con este codigo css no deja que se apile el text */
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    /* tener en cuenta proximos proyectos */
+    text-align: center;
+    font-weight: bold;
+    width: 90%;
+    overflow: hidden;
+    overflow-y: hidden;
+}
+.estados{
+    color: #000;
+    overflow: hidden;
+    height:130px;
+    min-width: 350px;
+}
 @media screen and (max-width: 373px){
     h1{
         font-size: 1rem;
@@ -49,5 +93,17 @@ h2{
     }
     h2{
         font-size: 0.7rem;
+    }
+    /* .test img {
+        background-size: cover;
+    } */
+}
+@media screen and (min-width: 879px){
+    .estados{
+        height: 220px;
+    }
+    .test p{
+        overflow-y: visible;
+        overflow: visible;
     }
 }

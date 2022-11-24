@@ -17,36 +17,16 @@ function traerDatos() {
         for (let item of datos){
             // let contenedor = document.createElement('div')
 
-            console.log(item.Bandejas.Res)
           containCards.innerHTML += `<div class="card mb-5" style="width: 18rem;">
-          <img src="${item.Bandejas.Res.imagen}" class="card-img-top" alt="...">
+          <img src="${item.imagen}" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">${item.Bandejas.Res.titulo}</h5>
-            <p class="card-text">${item.Bandejas.Res.acompanantes}</p>
-            <p class="card-text">${item.Bandejas.Res.bebidaysopa}</p>
+            <h5 class="card-title">${item.titulo}</h5>
+            <p class="card-text">${item.acompanantes}</p>
+            <p class="card-text">${item.bebidaysopa}</p>
             <a href="#" class="btn btn-primary">agregar al carrito</a>
           </div>
         </div>`
 
-        containCards.innerHTML += `<div class="card mb-5" style="width: 18rem;">
-        <img src="${item.Bandejas.Cerdo.imagen}" class="card-img-top" alt="...">
-        <div class="card-body ">
-          <h5 class="card-title">${item.Bandejas.Cerdo.titulo}</h5>
-          <p class="card-text">${item.Bandejas.Cerdo.acompanantes}</p>
-          <p class="card-text">${item.Bandejas.Cerdo.bebidaysopa}</p>
-          <a href="#" class="btn btn-primary">agregar al carrito</a>
-        </div>
-      </div>`
-      
-      containCards.innerHTML += `<div class="card mb-5" style="width: 18rem;">
-      <img src="${item.Bandejas.Pechuga.imagen}" class="card-img-top" alt="...">
-      <div class="card-body ">
-        <h5 class="card-title">${item.Bandejas.Pechuga.titulo}</h5>
-        <p class="card-text">${item.Bandejas.Pechuga.acompanantes}</p>
-        <p class="card-text">${item.Bandejas.Pechuga.bebidaysopa}</p>
-        <a href="#" class="btn btn-primary">agregar al carrito</a>
-      </div>
-    </div>`
         } 
  
         } 
