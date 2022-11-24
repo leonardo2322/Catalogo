@@ -39,7 +39,7 @@ h2{
     padding: 3rem;
 }
 .accordion{
-    width: 90%;
+    width: 100%;
 
 }
 
@@ -82,6 +82,7 @@ h2{
 }
 .estados{
     color: #000;
+    border: 1px solid rgba(219, 219, 219, 1);
     overflow: hidden;
     height:130px;
     min-width: 350px;
