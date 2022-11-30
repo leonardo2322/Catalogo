@@ -4,7 +4,7 @@
     right: 20%;
 }
 .offcanvas{
-    --bs-offcanvas-width:300px;
+    --bs-offcanvas-width:330px;
 }
 
 .offcanvas-backdrop{
@@ -56,10 +56,11 @@ h2{
 }
 
 .about-container{
-    height: 500px;
+    height: 400px;
     padding: 10px;
     text-align: center;
     background-color: #1b1b32;
+    margin-top: 14rem;
 }
 .about-container h1,p{
     color: #fff
@@ -72,11 +73,12 @@ h2{
     
     /* /* width: 100px; */
     min-width: 55px;
-    height: 120px;
+    max-height: 600px;
+
 }
 .test img{
     object-fit: cover;
-    border-radius: 50%;
+    border-radius: 4%;
     border: 1px solid #c62d8f ;
 }
 .test p{
@@ -96,8 +98,61 @@ h2{
     color: #000;
     border: 1px solid rgba(219, 219, 219, 1);
     overflow: hidden;
-    height:130px;
+    min-height: 200px;
     min-width: 350px;
+}
+.about-container .container{
+
+    max-width: 1100px;
+    max-height: 600px;
+    padding: 20px;
+}
+.about-container .rectangulo{
+    margin-top: -14rem;
+    background-color: #2D033B;
+    border-radius: 10px;
+    box-shadow: 0px 1px 4px 1px #E5B8F4;
+}
+.about-container .row{
+    width: 100%;
+    display: flex;
+    align-items:center ;
+}
+.about-container .descripcion{
+    color: white;
+    font-size: 1.2rem;
+}
+.about-container button{
+    color: #fff;
+    font-weight: bold;
+    background-color: transparent;
+    border: 2px solid #fff;
+    padding: 1.25em  2em;
+    margin: 10px;
+    border-radius: 100px;
+    transition: all 0.2s ease-in-out;
+}
+.about-container button i{
+    color: #fff;
+    font-size: 1.2rem;
+    transition: all 0.2s ease-in-out;
+}
+.about-container button:hover{
+    background-color: #2D033B;
+    color: #c62d8f;
+    border: 2px solid #c62d8f;
+}
+.about-container button:hover i{
+    color: #c62d8f;
+}
+.offcanvas-body{
+    padding: 0;
+}
+.Total{
+    color: #000;
+}
+.cantidadTotalDeLacompra{
+    background-color: #cff4fc;
 }
 
 @media screen and (max-width: 373px){
@@ -112,10 +167,8 @@ h2{
         background-size: cover;
     } */
 }
+
 @media screen and (min-width: 879px){
-    .estados{
-        height: 220px;
-    }
     .test p{
         overflow-y: visible;
         overflow: visible;
@@ -123,6 +176,7 @@ h2{
 }
 
 @media screen and (max-width: 317px){
+
     #shop{
         right: -10%;
     }
@@ -130,6 +184,7 @@ h2{
 }
 
 @media  screen and (min-width: 460px) {
+
     #shop{
         right: 15%;
     }
