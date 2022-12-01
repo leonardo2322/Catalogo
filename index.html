@@ -50,21 +50,21 @@
             class="navbar-nav d-flex justify-content-center align-items-center"
           >
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"
-                >Sobre nosotros</a
+              <a class="nav-link active" aria-current="page" href="#tamaño"
+                >Promociones</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Platos</a>
+              <a class="nav-link" href="#platos">Platos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">contactanos</a>
+              <a class="nav-link" href="#footer-p">contactanos</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-
+    <!-- carrito compras container -->
     <div
       class="offcanvas offcanvas-start"
       data-bs-scroll="true"
@@ -116,16 +116,34 @@
                     <td>crudo</td>
                     <td>3</td>
                   </tr>
-      
                 </tbody>
               </table>
               <div class="cantidadTotalDeLacompra">
-                <h1 class="Total">total de la compra:<input type="number"></h1>
+                <h1 class="Total">
+                  total de la compra:<input type="number" />
+                </h1>
               </div>
             </div>
           </div>
         </div>
-        
+      </div>
+    </div>
+    <!-- modal -->
+    <!-- Scrollable modal -->
+    <div class=" modal fade" id="ubicacion">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5>ubicacionos</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="container">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.722042210861!2d-75.58754108551533!3d6.1679635289061645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4682529bdeaa1f%3A0xd1b0c12d18b7ed5c!2sDarysa%20Pub%20Kitchen!5e0!3m2!1ses-419!2sco!4v1669853831547!5m2!1ses-419!2sco" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
       </div>
     </div>
     <!-- seccion hero -->
@@ -143,45 +161,66 @@
         <h2>deliciosos platos A domicilio disfruta en familia</h2>
       </div>
     </section>
-
-    <section class="estados container-fluid mt-4 mb-4 " id="tamaño">
+    <!-- estados -->
+    <section class="estados container-fluid mt-4 mb-4" id="tamaño">
       <div class="row">
         <div class="col-2 test d-flex flex-column justify-content-center">
-          <img src="img/mapa.png" class="img-fluid" alt="imagen estados" />
-          <p>Ubicanos</p>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#ubicacion">
+            <img src="img/mapa.png" class="img-fluid" alt="imagen estados" />
+            <p>Ubicanos</p>
+          </a>
         </div>
         <div
           class="col-2 test d-flex flex-column justify-content-center text-wrap"
         >
-          <img src="img/menu.png" class="img-fluid" alt="imagen estados" />
-          <p>Menus</p>
+          <a href="#">
+            <img src="img/menu.png" class="img-fluid" alt="imagen estados" />
+            <p>Menus</p>
+          </a>
         </div>
         <div class="col-2 test d-flex flex-column justify-content-center">
-          <img
-            src="img/calendario.png"
-            class="img-fluid"
-            alt="imagen estados"
-          />
-          <p>Horarios</p>
+          <a href="#">
+            <img
+              src="img/calendario.png"
+              class="img-fluid"
+              alt="imagen estados"
+            />
+            <p>Horarios</p>
+          </a>
         </div>
         <div class="col-2 test d-flex flex-column justify-content-center">
-          <img src="img/descuento.png" class="img-fluid" alt="imagen estados" />
-          <p>Promociones</p>
+          <a href="#">
+            <img
+              src="img/descuento.png"
+              class="img-fluid"
+              alt="imagen estados"
+            />
+            <p>Promociones</p>
+          </a>
         </div>
         <div class="col-2 test d-flex flex-column justify-content-center">
-          <img src="img/afiliado.png" class="img-fluid" alt="imagen estados" />
-          <p>Afiliate</p>
+          <a href="#">
+            <img
+              src="img/afiliado.png"
+              class="img-fluid"
+              alt="imagen estados"
+            />
+            <p>Afiliate</p>
+          </a>
         </div>
         <div class="col-2 test d-flex flex-column justify-content-center">
-          <img
-            src="img/realimentacion.png"
-            class="img-fluid"
-            alt="imagen estados"
-          />
-          <p>Clientes Satisfechos</p>
+          <a href="#">
+            <img
+              src="img/realimentacion.png"
+              class="img-fluid"
+              alt="imagen estados"
+            />
+            <p>Clientes Satisfechos</p>
+          </a>
         </div>
       </div>
     </section>
+    <!-- carousel -->
     <div class="container">
       <div id="carrusel-test" class="carousel slide m-5" data-bs-ride="true">
         <div class="carousel-indicators">
@@ -249,8 +288,8 @@
         </button>
       </div>
     </div>
-
-    <section width="100%">
+    <!-- accordion de secciones bandejas sencillos -->
+    <section class="platos" id="platos" width="100%">
       <div class="accordion justify-content-center" id="accordionExample">
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingOne">
@@ -343,7 +382,9 @@
       </div>
       <div class="cards-contain"></div>
     </section>
-    <section class="about-container">
+
+    <!-- footer -->
+    <section class="about-container" id="footer-p">
       <div class="container">
         <div class="about d-flex rectangulo justify-content-evenly">
           <div class="row">
@@ -358,23 +399,27 @@
             </div>
             <div class="col-12 col-md-2">
               <a href="mailto:joys23services@gmail.com">
-                <button  type="button">
+                <button type="button">
                   Email <i class="bi bi-envelope-at-fill"></i>
                 </button>
               </a>
             </div>
             <div class="col-12 col-md-2">
-              <button  type="button">
-                whatsapp <i class="bi bi-whatsapp"></i>
-              </button>
+
+              <a href="https://wa.me/+573502117928">
+                <button type="button">
+                  whatsapp <i class="bi bi-whatsapp"></i>
+                </button>
+              </a>
+
             </div>
             <div class="col-12 col-md-2">
-              <button  type="button">
+              <button type="button">
                 facebook <i class="bi bi-facebook"></i>
               </button>
             </div>
             <div class="col-12 col-md-2">
-              <button  type="button">
+              <button type="button">
                 Instagram <i class="bi bi-instagram"></i>
               </button>
             </div>

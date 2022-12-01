@@ -151,6 +151,10 @@ h2{
 .Total{
     color: #000;
 }
+a{
+    cursor: pointer;
+    text-decoration: none;
+}
 .cantidadTotalDeLacompra{
     background-color: #cff4fc;
 }
