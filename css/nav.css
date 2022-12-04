@@ -3,6 +3,10 @@
     position: absolute;
     right: 20%;
 }
+body{
+    padding: 0;
+    margin: 0;
+}
 .offcanvas{
     --bs-offcanvas-width:330px;
 }
