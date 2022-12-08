@@ -85,43 +85,27 @@
       </div>
       <div class="bodycanvas offcanvas-body">
         <div class="container-fluid">
-          <div class="row">
-            <div class="col">
-              <table class="table">
+          <div class="row d-flex justify-content-center align-items-center">
+            <div class="col" id="tabla-carrito">
+              <table class="table table-success table-striped-column">
                 <thead>
                   <tr class="table-info">
                     <th>Producto</th>
-                    <th>especificacion</th>
-                    <th>cantidad</th>
+                    <th>contexto</th>
+                    <th>cant</th>
+                    <th>precio</th>
+                    <th>Opt</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td>S. Res</td>
-                    <td>bn asado</td>
-                    <td>3</td>
-                  </tr>
-                  <tr>
-                    <td>S. Res</td>
-                    <td>normal</td>
-                    <td>3</td>
-                  </tr>
-                  <tr>
-                    <td>S. Res</td>
-                    <td>3/4</td>
-                    <td>3</td>
-                  </tr>
-                  <tr>
-                    <td>S. Res</td>
-                    <td>crudo</td>
-                    <td>3</td>
-                  </tr>
+                <tbody class="listaProductos" id="listaProductos">
+                  
                 </tbody>
               </table>
               <div class="cantidadTotalDeLacompra">
                 <h1 class="Total">
-                  total de la compra:<input type="number" />
+                  total de la compra:<input type="number" style="border: none; border-bottom: 2px solid #0300cc; background: none;" />
                 </h1>
+                <button type="button" class="btn btn-primary" id="btn-Vaciar"> Vaciar carrito</button>
               </div>
             </div>
           </div>
@@ -539,7 +523,7 @@
     <!-- accordion de secciones bandejas sencillos -->
     <section class="platos" id="platos" width="100%">
       <div class="accordion justify-content-center" id="accordionExample">
-        <div class="accordion-item">
+        <div class="accordion-item" >
           <h2 class="accordion-header" id="headingOne">
             <button
               class="accordion-button"
@@ -558,7 +542,7 @@
             aria-labelledby="headingOne"
             data-bs-parent="#accordionExample"
           >
-            <div class="accordion-body"></div>
+            <div class="accordion-body"id="acord-Bandejas"></div>
           </div>
         </div>
         <div class="accordion-item">

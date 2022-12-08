@@ -3,64 +3,74 @@
     "acompanantes": "arroz, ensalada, tajada de maduro, papas Fritas",
     "bebidaysopa": "Sopa y Sobre mesa",
     "imagen": "img/232-image_web.jpg",
-    "titulo": "Res"
+    "titulo": "Res",
+    "precio": 15000
   },
 
   {
     "acompanantes": "arroz, ensalada, tajada de maduro, papas Fritas",
     "bebidaysopa": "Sopa y Sobre mesa",
     "imagen": "img/istockphoto-1156689466-612x612.jpg",
-    "titulo": "Cerdo"
+    "titulo": "Cerdo",
+    "precio": 15000
   },
 
   {
     "acompanantes": "arroz, ensalada, tajada de maduro, papas Fritas",
     "bebidaysopa": "Sopa y Sobre mesa",
     "imagen": "img/istockphoto-1156689466-612x612.jpg",
-    "titulo": "Chicharron"
+    "titulo": "Chicharron",
+    "precio": 15000
   },
 
   {
     "acompanantes": "arroz, ensalada, tajada de maduro, papas Fritas",
     "bebidaysopa": "Sopa y Sobre mesa",
     "imagen": "img/istockphoto-1156689466-612x612.jpg",
-    "titulo": "Pechuga"
+    "titulo": "Pechuga",
+    "precio": 15000
   },
 
   {
     "acompanantes": "arroz, ensalada, tajada de maduro, papas y yuca sudada",
     "bebidaysopa": "Sopa y Sobre mesa",
     "imagen": "img/istockphoto-1156689466-612x612.jpg",
-    "titulo": "SobreBarriga"
+    "titulo": "SobreBarriga",
+    "precio": 15000
   },
   {
     "acompanantes": "arroz, ensalada, tajada de maduro, papas y yuca sudada",
     "bebidaysopa": "Sopa y Sobre mesa",
     "imagen": "img/istockphoto-1156689466-612x612.jpg",
-    "titulo": "Posta"
+    "titulo": "Posta",
+    "precio": 15000
   },
   {
     "acompanantes": "arroz, ensalada, tajada de maduro, papas y yuca sudada",
     "bebidaysopa": "Sopa y Sobre mesa",
     "imagen": "img/istockphoto-1156689466-612x612.jpg",
-    "titulo": "lengua"
-  },
-    {
-    "acompanantes": "arroz, ensalada, tajada de maduro, papas y yuca sudada",
-    "bebidaysopa": "Sopa y Sobre mesa",
-    "imagen": "img/istockphoto-1156689466-612x612.jpg",
-    "titulo": "higado"
+    "titulo": "lengua",
+    "precio": 15000
   },
   {
     "acompanantes": "arroz, ensalada, tajada de maduro, papas y yuca sudada",
     "bebidaysopa": "Sopa y Sobre mesa",
     "imagen": "img/istockphoto-1156689466-612x612.jpg",
-    "titulo": "Robalo"
+    "titulo": "higado",
+    "precio": 15000
   },
   {
     "acompanantes": "arroz, ensalada, tajada de maduro, papas y yuca sudada",
     "bebidaysopa": "Sopa y Sobre mesa",
     "imagen": "img/istockphoto-1156689466-612x612.jpg",
-    "titulo": "Bagre"
+    "titulo": "Robalo",
+    "precio": 17000
+  },
+  {
+    "acompanantes": "arroz, ensalada, tajada de maduro, papas y yuca sudada",
+    "bebidaysopa": "Sopa y Sobre mesa",
+    "imagen": "img/istockphoto-1156689466-612x612.jpg",
+    "titulo": "Bagre",
+    "precio": 17000
   }
 ]
