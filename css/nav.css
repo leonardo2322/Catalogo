@@ -162,7 +162,14 @@ a{
 .cantidadTotalDeLacompra{
     background-color: #cff4fc;
 }
-
+.addCart:hover{
+    background-color: #c62d8f;
+}
+.input-cant{
+    background: none;
+    width: 1.5rem ;
+    border: none;
+}
 @media screen and (max-width: 373px){
     h1{
         font-size: 1rem;

@@ -3,9 +3,33 @@ const CntBandejas = document.querySelector("#acord-Bandejas");
 let productos = [];
 let listaProductos = document.querySelector("#listaProductos");
 let btnVaciarCarrito = document.querySelector("#btn-Vaciar");
-let tablaCarrito= document.querySelector('#tabla-carrito')
+let tablaCarrito = document.querySelector("#tabla-carrito");
+let count = 1;
 
-tablaCarrito.addEventListener('click',eliminarProducto)
+
+tablaCarrito.addEventListener("click", evaluar);
+
+function evaluar(e) {
+  if (e.target.classList.contains("delete-P")) {
+    eliminarProducto(e);
+  } else if (e.target.classList.contains("cant-mas")) {
+
+    let inputCant = document.querySelector('.input-cant')
+    
+    inputCant.value = count 
+    ++count
+  
+  }else if(e.target.classList.contains("cant-menos")){
+    let inputCant = document.querySelector('.input-cant')
+    
+    inputCant.value = count 
+    count -=1
+  }
+
+
+}
+
+
 
 btnVaciarCarrito.addEventListener("click", vaciarCarrito);
 document.addEventListener("DOMContentLoaded", traerDatos);
@@ -31,7 +55,7 @@ function traerDatos() {
             <p class="card-text">${item.acompanantes}</p>
             <h2 class="card-text">${item.precio}</h2>
             <p class="card-text">${item.bebidaysopa}</p>
-            <a href="#" class="btn btn-primary">agregar al carrito</a>
+            <a href="#" class="addCart btn btn-primary">agregar al carrito</a>
           </div>
         </div>`;
       }
@@ -75,12 +99,13 @@ function leerLocalStorage() {
   productosLS.forEach(function (producto) {
     //Construir plantilla
     const row = document.createElement("tr");
-    row.innerHTML = `
-          <td>
+    row.innerHTML = 
+    `
+      <td>
               <img class="img-fluid" src="${producto.imagen}" >
           </td>
           <td>${producto.titulo}<br>${producto.Especificacion}<br>${producto.acompanantes}</td>
-          <td>${producto.cantida}</td>
+          <td class="cantidad "><input type="number" value="${producto.cantida}" class="input-cant"></td>
           <td>${producto.precio}</td>
           <td>
               <a href="#" class="" style="font-size: 1.5rem" data-id="${producto.id}"><i class="delete-P bi bi-trash3-fill"></i><i class="cant-mas bi bi-plus-circle"></i><i class="cant-menos bi bi-dash-circle"></i></a>
@@ -150,7 +175,7 @@ function eliminarProducto(e) {
     producto = e.target.parentElement.parentElement;
     productoID = producto.querySelector("a").getAttribute("data-id");
   }
-  eliminarProductoLocalStorage(productoID)
+  eliminarProductoLocalStorage(productoID);
 }
 
 //Eliminar producto por ID del LS
