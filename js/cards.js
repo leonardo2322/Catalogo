@@ -5,6 +5,7 @@ let listaProductos = document.querySelector("#listaProductos");
 let btnVaciarCarrito = document.querySelector("#btn-Vaciar");
 let tablaCarrito = document.querySelector("#tabla-carrito");
 let count = 1;
+let contar= 1
 
 
 tablaCarrito.addEventListener("click", evaluar);
@@ -13,17 +14,14 @@ function evaluar(e) {
   if (e.target.classList.contains("delete-P")) {
     eliminarProducto(e);
   } else if (e.target.classList.contains("cant-mas")) {
-
-    let inputCant = document.querySelector('.input-cant')
+    e.target.parentElement.parentElement.parentElement.childNodes[5].childNodes[0].value ++ 
     
-    inputCant.value = count 
-    ++count
-  
   }else if(e.target.classList.contains("cant-menos")){
-    let inputCant = document.querySelector('.input-cant')
+    e.target.parentElement.parentElement.parentElement.childNodes[5].childNodes[0].value > 1
+    ? e.target.parentElement.parentElement.parentElement.childNodes[5].childNodes[0].value-- 
+     :e.target.parentElement.parentElement.parentElement.remove()
     
-    inputCant.value = count 
-    count -=1
+    eliminarProducto(e.target.parentElement.getAttribute('data-id'))
   }
 
 
@@ -95,6 +93,7 @@ CntBandejas.addEventListener("click", (e) => {
 
 function leerLocalStorage() {
   let productosLS;
+  let cont= 1
   productosLS = this.obtenerProductosLocalStorage();
   productosLS.forEach(function (producto) {
     //Construir plantilla
@@ -105,12 +104,13 @@ function leerLocalStorage() {
               <img class="img-fluid" src="${producto.imagen}" >
           </td>
           <td>${producto.titulo}<br>${producto.Especificacion}<br>${producto.acompanantes}</td>
-          <td class="cantidad "><input type="number" value="${producto.cantida}" class="input-cant"></td>
+          <td class="cantidad "><input type="number" data-id="${cont}" value="${producto.cantida}" min="1" max="10" step="1" class="input-cant"></td>
           <td>${producto.precio}</td>
           <td>
               <a href="#" class="" style="font-size: 1.5rem" data-id="${producto.id}"><i class="delete-P bi bi-trash3-fill"></i><i class="cant-mas bi bi-plus-circle"></i><i class="cant-menos bi bi-dash-circle"></i></a>
           </td>
       `;
+      cont++
     listaProductos.appendChild(row);
   });
 }
@@ -137,19 +137,21 @@ function guardarProductosLocalStorage(producto) {
 }
 
 function insertarCarrito(producto) {
+
   const row = document.createElement("tr");
   /* row.classList.add('trCar') */
   row.innerHTML = `
-      <td>
-          <img class="imgCar img-fluid" src="${producto.imagen}" >
-      <td class="tituloCar" style="font-size: 1rem p-3" >${producto.titulo}<br>${producto.Especificacion}<br>${producto.acompanantes}</td>
-      <td class="precioCar" style="font-size: 1rem " >${producto.cantida} </td>
-      <td class="precioCar" style="font-size: 1rem " >${producto.precio}</td>
-
-      <td>
-          <a href="#" style="font-size: 1.5rem" class="" data-id="${producto.id}"><i class="delete-P bi bi-trash3-fill"></i><i class="cant-mas bi bi-plus-circle"></i><i class="cant-menos bi bi-dash-circle"></i></a>
-      </td>
+  <td>
+  <img class="img-fluid" src="${producto.imagen}" >
+</td>
+<td>${producto.titulo}<br>${producto.Especificacion}<br>${producto.acompanantes}</td>
+<td class="cantidad "><input type="number" data-id="${contar}" value="${producto.cantida}" min="1" max="10" step="1" class="input-cant"></td>
+<td>${producto.precio}</td>
+<td>
+  <a href="#" class="" style="font-size: 1.5rem" data-id="${producto.id}"><i class="delete-P bi bi-trash3-fill"></i><i class="cant-mas bi bi-plus-circle"></i><i class="cant-menos bi bi-dash-circle"></i></a>
+</td>
   `;
+  contar++
   listaProductos.appendChild(row);
   guardarProductosLocalStorage(producto);
 }
@@ -168,14 +170,24 @@ function vaciarLocalStorage() {
 }
 
 function eliminarProducto(e) {
-  e.preventDefault();
-  let producto, productoID;
-  if (e.target.classList.contains("delete-P")) {
+  if (e.target.classList.contains('delete-P')){
+    e.preventDefault()
+    let producto, productoID;
     e.target.parentElement.parentElement.parentElement.remove();
     producto = e.target.parentElement.parentElement;
     productoID = producto.querySelector("a").getAttribute("data-id");
+    contar--
+    eliminarProductoLocalStorage(productoID);
+  }else{
+        let producto, productoID;
+    e.target.parentElement.parentElement.parentElement.remove();
+    producto = e.target.parentElement.parentElement;
+    console.log(producto)
+    // productoID = producto.querySelector("a").getAttribute("data-id");
+    contar--
+    // eliminarProductoLocalStorage(productoID);
   }
-  eliminarProductoLocalStorage(productoID);
+ 
 }
 
 //Eliminar producto por ID del LS
@@ -190,5 +202,6 @@ function eliminarProductoLocalStorage(productoID) {
     }
   });
   //A�adimos el arreglo actual al LS
+  contar =1
   localStorage.setItem("productos", JSON.stringify(productosLS));
 }
