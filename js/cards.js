@@ -6,6 +6,7 @@ let btnVaciarCarrito = document.querySelector("#btn-Vaciar");
 let tablaCarrito = document.querySelector("#tabla-carrito");
 let count = 1;
 let contar= 1
+let totalCompraID= document.querySelector('#totalID')
 
 
 tablaCarrito.addEventListener("click", evaluar);
@@ -94,6 +95,7 @@ CntBandejas.addEventListener("click", (e) => {
 function leerLocalStorage() {
   let productosLS;
   let cont= 1
+  let total = parseInt(totalCompraID.value)
   productosLS = this.obtenerProductosLocalStorage();
   productosLS.forEach(function (producto) {
     //Construir plantilla
@@ -111,8 +113,16 @@ function leerLocalStorage() {
           </td>
       `;
       cont++
+
+          
+      console.log(typeof(total))
+        total += parseInt(producto.precio)
+        console.log(total)
+     
+
     listaProductos.appendChild(row);
-  });
+  })
+  totalCompraID.value = total;
 }
 
 function obtenerProductosLocalStorage() {
@@ -137,7 +147,6 @@ function guardarProductosLocalStorage(producto) {
 }
 
 function insertarCarrito(producto) {
-
   const row = document.createElement("tr");
   /* row.classList.add('trCar') */
   row.innerHTML = `
@@ -151,10 +160,31 @@ function insertarCarrito(producto) {
   <a href="#" class="" style="font-size: 1.5rem" data-id="${producto.id}"><i class="delete-P bi bi-trash3-fill"></i><i class="cant-mas bi bi-plus-circle"></i><i class="cant-menos bi bi-dash-circle"></i></a>
 </td>
   `;
+  
+
+  if (totalCompraID.value == 0){
+    totalCompraID.value = parseInt(producto.precio)
+  }else{
+    let total =parseInt(totalCompraID.value) + parseInt(producto.precio)
+    totalCompraID.value = total
+  }
+
+
   contar++
   listaProductos.appendChild(row);
   guardarProductosLocalStorage(producto);
 }
+
+// function sumarYRestar(valor){
+//   if (totalCompraID.value == 0){
+//     totalCompraID.value = parseInt(producto.precio)
+//   }else{
+//     let total =parseInt(totalCompraID.value) + parseInt(producto.precio)
+//     console.log(total)
+//     totalCompraID.value = total
+//   }
+
+// }
 
 function vaciarCarrito(e) {
   e.preventDefault();
@@ -162,6 +192,7 @@ function vaciarCarrito(e) {
     listaProductos.removeChild(listaProductos.firstChild);
   }
   vaciarLocalStorage();
+  totalCompraID.value = 0
   return false;
 }
 

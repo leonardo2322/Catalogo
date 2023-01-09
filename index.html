@@ -103,7 +103,7 @@
               </table>
               <div class="cantidadTotalDeLacompra">
                 <h1 class="Total">
-                  total de la compra:<input type="number" style="border: none; border-bottom: 2px solid #0300cc; background: none;" width="100%" />
+                  total de la compra:<input id="totalID" type="number" placeholder="0" min="0" value="0" style="border: none; border-bottom: 2px solid #0300cc; background: none;" width="100%" />
                 </h1>
                 <button type="button" class="addCart btn btn-primary" id="btn-Vaciar">Vaciar carrito</button>
               </div>
@@ -453,6 +453,11 @@
       </div>
     </section>
     <!-- carousel -->
+    <div class="publicidad-container">
+      <h1 class="text-publicidad">
+        Promocion de 2x1
+      </h1>
+    </div>
     <div class="container">
       <div id="carrusel-test" class="carousel slide m-5" data-bs-ride="true">
         <div class="carousel-indicators">
@@ -519,6 +524,9 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
+    </div>
+    <div class="platosTitleCont">
+      <h1 class="platosText">Platos</h1>
     </div>
     <!-- accordion de secciones bandejas sencillos -->
     <section class="platos" id="platos" width="100%">
