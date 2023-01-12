@@ -5,9 +5,8 @@ let listaProductos = document.querySelector("#listaProductos");
 let btnVaciarCarrito = document.querySelector("#btn-Vaciar");
 let tablaCarrito = document.querySelector("#tabla-carrito");
 let count = 1;
-let contar= 1
-let totalCompraID= document.querySelector('#totalID')
-
+let contar = 1;
+let totalCompraID = document.querySelector("#totalID");
 
 tablaCarrito.addEventListener("click", evaluar);
 
@@ -15,20 +14,18 @@ function evaluar(e) {
   if (e.target.classList.contains("delete-P")) {
     eliminarProducto(e);
   } else if (e.target.classList.contains("cant-mas")) {
-    e.target.parentElement.parentElement.parentElement.childNodes[5].childNodes[0].value ++ 
-    
-  }else if(e.target.classList.contains("cant-menos")){
-    e.target.parentElement.parentElement.parentElement.childNodes[5].childNodes[0].value > 1
-    ? e.target.parentElement.parentElement.parentElement.childNodes[5].childNodes[0].value-- 
-     :e.target.parentElement.parentElement.parentElement.remove()
-    
-    eliminarProducto(e.target.parentElement.getAttribute('data-id'))
+    e.target.parentElement.parentElement.parentElement.childNodes[5]
+      .childNodes[0].value++;
+  } else if (e.target.classList.contains("cant-menos")) {
+    e.target.parentElement.parentElement.parentElement.childNodes[5]
+      .childNodes[0].value > 1
+      ? e.target.parentElement.parentElement.parentElement.childNodes[5]
+          .childNodes[0].value--
+      : e.target.parentElement.parentElement.parentElement.remove();
+
+    eliminarProducto(e.target.parentElement.getAttribute("data-id"));
   }
-
-
 }
-
-
 
 btnVaciarCarrito.addEventListener("click", vaciarCarrito);
 document.addEventListener("DOMContentLoaded", traerDatos);
@@ -46,17 +43,35 @@ function traerDatos() {
       containCards.innerHTML = "";
       for (let item of datos) {
         // let contenedor = document.createElement('div')
-
-        containCards.innerHTML += `<div class="card mb-5" style="width: 18rem;">
-          <img src="${item.imagen}" class="card-img-top" alt="...">
-          <div class="card-body ${item.titulo}">
-            <h5 class="card-title">${item.titulo}</h5>
-            <p class="card-text">${item.acompanantes}</p>
-            <h2 class="card-text">${item.precio}</h2>
-            <p class="card-text">${item.bebidaysopa}</p>
-            <a href="#" class="addCart btn btn-primary">agregar al carrito</a>
+        containCards.innerHTML += `
+        <div class="card" style=";">
+          <div class="row g-0">
+            <div class="col-md-2 cont-img ">
+              <img src="${item.imagen}" class=" img-fluid" id="img-cards" style="width:6rem" alt="${item.imagen}" />
+            </div>
+            <div class="col-md-6">
+              <div class="card-body">
+                <h5 class="card-title">${item.titulo}</h5>
+                <p class="card-text">${item.acompanantes}</p>
+                <p class="card-text">${item.bebidaysopa}</p>
+                <p class="card-text">
+                  <small class="text-muted">${item.precio}</small>
+                </p>
+                <a href="#" class="addCart ">+</a>
+              </div>
+            </div>
           </div>
-        </div>`;
+        </div>`
+        //  `<div class="card mb-5" style="width: 18rem;">
+        //   <img src="${item.imagen}" class="card-img-top" alt="...">
+        //   <div class="card-body ${item.titulo}">
+        //     <h5 class="card-title">${item.titulo}</h5>
+        //     <p class="card-text">${item.acompanantes}</p>
+        //     <h2 class="card-text">${item.precio}</h2>
+        //     <p class="card-text">${item.bebidaysopa}</p>
+        //     <a href="#" class="addCart btn btn-primary">agregar al carrito</a>
+        //   </div>
+        // </div>`;
       }
     }
   };
@@ -94,14 +109,13 @@ CntBandejas.addEventListener("click", (e) => {
 
 function leerLocalStorage() {
   let productosLS;
-  let cont= 1
-  let total = parseInt(totalCompraID.value)
+  let cont = 1;
+  let total = parseInt(totalCompraID.value);
   productosLS = this.obtenerProductosLocalStorage();
   productosLS.forEach(function (producto) {
     //Construir plantilla
     const row = document.createElement("tr");
-    row.innerHTML = 
-    `
+    row.innerHTML = `
       <td>
               <img class="img-fluid" src="${producto.imagen}" >
           </td>
@@ -112,16 +126,14 @@ function leerLocalStorage() {
               <a href="#" class="" style="font-size: 1.5rem" data-id="${producto.id}"><i class="delete-P bi bi-trash3-fill"></i><i class="cant-mas bi bi-plus-circle"></i><i class="cant-menos bi bi-dash-circle"></i></a>
           </td>
       `;
-      cont++
+    cont++;
 
-          
-      console.log(typeof(total))
-        total += parseInt(producto.precio)
-        console.log(total)
-     
+    console.log(typeof total);
+    total += parseInt(producto.precio);
+    console.log(total);
 
     listaProductos.appendChild(row);
-  })
+  });
   totalCompraID.value = total;
 }
 
@@ -160,17 +172,15 @@ function insertarCarrito(producto) {
   <a href="#" class="" style="font-size: 1.5rem" data-id="${producto.id}"><i class="delete-P bi bi-trash3-fill"></i><i class="cant-mas bi bi-plus-circle"></i><i class="cant-menos bi bi-dash-circle"></i></a>
 </td>
   `;
-  
 
-  if (totalCompraID.value == 0){
-    totalCompraID.value = parseInt(producto.precio)
-  }else{
-    let total =parseInt(totalCompraID.value) + parseInt(producto.precio)
-    totalCompraID.value = total
+  if (totalCompraID.value == 0) {
+    totalCompraID.value = parseInt(producto.precio);
+  } else {
+    let total = parseInt(totalCompraID.value) + parseInt(producto.precio);
+    totalCompraID.value = total;
   }
 
-
-  contar++
+  contar++;
   listaProductos.appendChild(row);
   guardarProductosLocalStorage(producto);
 }
@@ -192,7 +202,7 @@ function vaciarCarrito(e) {
     listaProductos.removeChild(listaProductos.firstChild);
   }
   vaciarLocalStorage();
-  totalCompraID.value = 0
+  totalCompraID.value = 0;
   return false;
 }
 
@@ -201,24 +211,23 @@ function vaciarLocalStorage() {
 }
 
 function eliminarProducto(e) {
-  if (e.target.classList.contains('delete-P')){
-    e.preventDefault()
+  if (e.target.classList.contains("delete-P")) {
+    e.preventDefault();
     let producto, productoID;
     e.target.parentElement.parentElement.parentElement.remove();
     producto = e.target.parentElement.parentElement;
     productoID = producto.querySelector("a").getAttribute("data-id");
-    contar--
+    contar--;
     eliminarProductoLocalStorage(productoID);
-  }else{
-        let producto, productoID;
+  } else {
+    let producto, productoID;
     e.target.parentElement.parentElement.parentElement.remove();
     producto = e.target.parentElement.parentElement;
-    console.log(producto)
+    console.log(producto);
     // productoID = producto.querySelector("a").getAttribute("data-id");
-    contar--
+    contar--;
     // eliminarProductoLocalStorage(productoID);
   }
- 
 }
 
 //Eliminar producto por ID del LS
@@ -233,6 +242,6 @@ function eliminarProductoLocalStorage(productoID) {
     }
   });
   //A�adimos el arreglo actual al LS
-  contar =1
+  contar = 1;
   localStorage.setItem("productos", JSON.stringify(productosLS));
 }
