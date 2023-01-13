@@ -282,6 +282,26 @@ input[type=number]::-webkit-outer-spin-button {
         overflow-y: visible;
         overflow: visible;
     }
+    h5{
+        font-size: 0.8rem;
+    }
+    .card-body .card-text,.card-title{
+        margin-bottom: 0;
+    }
+       .card-body a{
+        display: flex;
+        border-radius: 30%;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: #3f5efb;
+        width: 25px;
+        height: 25px;
+        color: #fff;
+        font-size: 1rem;
+    }
 }
 
 @media screen and (max-width: 317px){
