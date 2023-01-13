@@ -272,6 +272,7 @@ input[type=number]::-webkit-outer-spin-button {
         width: 8rem !important;
         object-fit: cover;
         aspect-ratio: 3/2;
+        padding: 15px;
     }
    
 }
