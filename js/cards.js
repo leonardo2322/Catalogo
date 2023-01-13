@@ -258,7 +258,9 @@ function eliminarProductoLocalStorage(productoID) {
   productosLS.forEach(function (productoLS, index) {
     if (productoLS.id === productoID) {
       productosLS.splice(index, 1);
-      if (localStorage.length < 0) {
+      console.log(localStorage.getItem('productos').length)
+      if (localStorage.getItem('productos').length == 243 && localStorage.length == 1 ) {
+        console.log('aca')
         totalCompraID.value= 0
       }
     }
