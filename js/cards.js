@@ -45,11 +45,11 @@ function traerDatos() {
         // let contenedor = document.createElement('div')
         containCards.innerHTML += `
         <div class="card" style=";">
-          <div class="row g-0">
-            <div class="col-md-2 cont-img ">
+          <div class="row">
+            
               <img src="${item.imagen}" class=" img-fluid" id="img-cards" style="width:6rem" alt="${item.imagen}" />
-            </div>
-            <div class="col-md-6">
+           
+            <div class="col">
               <div class="card-body">
                 <h5 class="card-title">${item.titulo}</h5>
                 <p class="card-text">${item.acompanantes}</p>
@@ -80,16 +80,24 @@ function traerDatos() {
 
 CntBandejas.addEventListener("click", (e) => {
   e.preventDefault();
-  let elemento = e.target.parentElement.parentElement;
+  if (e.target.classList.contains('addCart')) {
+    DataRecolect(e)
+  }
+  
+});
 
-  console.log(elemento.childNodes[3].childNodes[7].textContent);
+
+function DataRecolect(e) {
+  let elemento = e.target.parentElement.parentElement;
+  let imagenCard = elemento.parentElement
+  
   let infoProduct = {
-    id: elemento.childNodes[3].childNodes[1].textContent,
-    imagen: elemento.childNodes[1].src,
-    titulo: elemento.childNodes[3].childNodes[1].textContent,
-    precio: elemento.childNodes[3].childNodes[5].textContent,
-    Especificacion: elemento.childNodes[3].childNodes[3].textContent,
-    acompanantes: elemento.childNodes[3].childNodes[7].textContent,
+    id: elemento.childNodes[1].childNodes[1].textContent,
+    imagen: imagenCard.childNodes[1].src,
+    titulo: elemento.childNodes[1].childNodes[1].textContent,
+    precio: elemento.childNodes[1].childNodes[7].textContent,
+    Especificacion: elemento.childNodes[1].childNodes[3].textContent,
+    acompanantes: elemento.childNodes[1].childNodes[5].textContent,
     cantida: 1,
   };
 
@@ -105,8 +113,7 @@ CntBandejas.addEventListener("click", (e) => {
   } else {
     insertarCarrito(infoProduct);
   }
-});
-
+}
 function leerLocalStorage() {
   let productosLS;
   let cont = 1;

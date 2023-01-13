@@ -262,16 +262,15 @@ input[type=number]::-webkit-outer-spin-button {
     /* .test img {
         background-size: cover;
     } */
-    /* #img-cards{
-        width: 6rem;
-        height: 100%;
-    }
+    /* 
     .cont-img{
         width: 7rem;
         background-color: red;
         height: 10vh;
     } */
-
+    #img-cards{
+        width: 7rem !important;
+    }
    
 }
 
@@ -287,6 +286,30 @@ input[type=number]::-webkit-outer-spin-button {
     #shop{
         right: -10%;
     }
+        h5{
+        font-size: 0.8rem;
+    }
+    .card-body .card-text,.card-title{
+        margin-bottom: 0;
+    }
+    .card-body a{
+        display: flex;
+        border-radius: 30%;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: #3f5efb;
+        width: 25px;
+        height: 25px;
+        color: #fff;
+        font-size: 1rem;
+    } 
+    #img-cards{
+        width: 8rem;
+        object-fit: cover;
+    }
 
 }
 
@@ -294,5 +317,25 @@ input[type=number]::-webkit-outer-spin-button {
 
     #shop{
         right: 15%;
+    }
+    h5{
+        font-size: 0.8rem;
+    }
+    .card-body .card-text,.card-title{
+        margin-bottom: 0;
+    }
+    .card-body a{
+        display: flex;
+        border-radius: 30%;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: #3f5efb;
+        width: 25px;
+        height: 25px;
+        color: #fff;
+        font-size: 1rem;
     }
 }
