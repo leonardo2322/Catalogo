@@ -16,6 +16,10 @@ function evaluar(e) {
   } else if (e.target.classList.contains("cant-mas")) {
     e.target.parentElement.parentElement.parentElement.childNodes[5]
       .childNodes[0].value++;
+      console.log(e.target.parentElement.parentElement.parentElement.childNodes[7].textContent)
+      let valorDelElemento = parseInt(e.target.parentElement.parentElement.parentElement.childNodes[7].textContent)
+      let suma = parseInt(totalCompraID.value) + valorDelElemento
+      totalCompraID.value = suma
   } else if (e.target.classList.contains("cant-menos")) {
     e.target.parentElement.parentElement.parentElement.childNodes[5]
       .childNodes[0].value > 1
@@ -23,7 +27,7 @@ function evaluar(e) {
           .childNodes[0].value--
       : e.target.parentElement.parentElement.parentElement.remove();
 
-    eliminarProducto(e.target.parentElement.getAttribute("data-id"));
+    eliminarProducto(e);
   }
 }
 
@@ -42,7 +46,6 @@ function traerDatos() {
       let datos = JSON.parse(this.responseText);
       containCards.innerHTML = "";
       for (let item of datos) {
-        // let contenedor = document.createElement('div')
         containCards.innerHTML += `
         <div class="card" style=";">
           <div class="row">
@@ -61,17 +64,7 @@ function traerDatos() {
               </div>
             </div>
           </div>
-        </div>`
-        //  `<div class="card mb-5" style="width: 18rem;">
-        //   <img src="${item.imagen}" class="card-img-top" alt="...">
-        //   <div class="card-body ${item.titulo}">
-        //     <h5 class="card-title">${item.titulo}</h5>
-        //     <p class="card-text">${item.acompanantes}</p>
-        //     <h2 class="card-text">${item.precio}</h2>
-        //     <p class="card-text">${item.bebidaysopa}</p>
-        //     <a href="#" class="addCart btn btn-primary">agregar al carrito</a>
-        //   </div>
-        // </div>`;
+        </div>`;
       }
     }
   };
@@ -80,17 +73,15 @@ function traerDatos() {
 
 CntBandejas.addEventListener("click", (e) => {
   e.preventDefault();
-  if (e.target.classList.contains('addCart')) {
-    DataRecolect(e)
+  if (e.target.classList.contains("addCart")) {
+    DataRecolect(e);
   }
-  
 });
-
 
 function DataRecolect(e) {
   let elemento = e.target.parentElement.parentElement;
-  let imagenCard = elemento.parentElement
-  
+  let imagenCard = elemento.parentElement;
+
   let infoProduct = {
     id: elemento.childNodes[1].childNodes[1].textContent,
     imagen: imagenCard.childNodes[1].src,
@@ -218,16 +209,37 @@ function vaciarLocalStorage() {
 }
 
 function eliminarProducto(e) {
+  console.log(e.target)
   if (e.target.classList.contains("delete-P")) {
     e.preventDefault();
+
     let producto, productoID;
     e.target.parentElement.parentElement.parentElement.remove();
     producto = e.target.parentElement.parentElement;
     productoID = producto.querySelector("a").getAttribute("data-id");
     contar--;
+    let precio = parseInt(
+      e.target.parentElement.parentElement.parentElement.childNodes[7]
+        .textContent
+    );
+    let restando = parseInt(totalCompraID.value) - precio;
+    totalCompraID.value = restando;
     eliminarProductoLocalStorage(productoID);
+  }else if(e.target.classList.contains('cant-menos')){
+    e.preventDefault()
+    let datid= e.target.parentElement.getAttribute('data-id')
+    let precio = parseInt(
+      e.target.parentElement.parentElement.parentElement.childNodes[7]
+        .textContent
+    );
+    let restando = parseInt(totalCompraID.value) - precio;
+    totalCompraID.value = restando;
+
+    console.log(datid,precio)
+    eliminarProductoLocalStorage(datid)
   } else {
     let producto, productoID;
+    console.log('dentra aqui')
     e.target.parentElement.parentElement.parentElement.remove();
     producto = e.target.parentElement.parentElement;
     console.log(producto);
@@ -246,7 +258,11 @@ function eliminarProductoLocalStorage(productoID) {
   productosLS.forEach(function (productoLS, index) {
     if (productoLS.id === productoID) {
       productosLS.splice(index, 1);
+      if (localStorage.length < 0) {
+        totalCompraID.value= 0
+      }
     }
+    
   });
   //A�adimos el arreglo actual al LS
   contar = 1;
