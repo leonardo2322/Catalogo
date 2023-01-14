@@ -257,6 +257,12 @@ h5{
     aspect-ratio: 3/2;
     padding: 15px;
 }
+.Send{
+    color: #7cfc00;
+    padding: 3px;
+    height: 2.3rem;
+}
+
 @media screen and (max-width: 373px){
     h1{
         font-size: 1rem;

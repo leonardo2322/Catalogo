@@ -7,7 +7,7 @@ let tablaCarrito = document.querySelector("#tabla-carrito");
 let count = 0;
 let contar = 1;
 let totalCompraID = document.querySelector("#totalID");
-
+let Enviar = document.querySelector('#send')
 tablaCarrito.addEventListener("click", evaluar);
 
 function evaluar(e) {
@@ -77,6 +77,38 @@ CntBandejas.addEventListener("click", (e) => {
     DataRecolect(e);
   }
 });
+Enviar.addEventListener('click',whatsappSend)
+
+
+function whatsappSend(e) {
+  if (listaProductos.childNodes.length ==0){
+    alert('introduce productos para realizar la compra')
+  }else{
+    let table = document.querySelector('#tableShop')
+    let textoEspeci = ""
+    let iterator = 0
+    for (let data of table.rows){
+      if (data.classList.contains('table-info')){
+
+      }else{
+        let Especificacion = data.childNodes[3].textContent
+        let cantida = data.childNodes[5].childNodes[0].value
+        let precio = data.childNodes[7].textContent
+        let total = parseInt(precio) * parseInt(cantida)
+        textoEspeci+= `Producto:${iterator} Plato:${Especificacion} Cantidad:${cantida} precio:${total} \n`
+      
+      }
+      iterator++
+    }
+      
+    let mensaje = `hola 👋 te hablamos https://leonardo2322.github.io/Catalogo/index.html colombia \n tipo de servicio: {validar Con nuestro equipo}🤝 \n Estado del Pago: no pagado💳 \n Pedido ✍:Por el catalogo digital \n especificacion Del Pedido: ${textoEspeci} costo total de la compra: ${totalCompraID.value} 💸 envia este mensaje te atenderemos enseguida`
+    iterator = 1
+
+    let what =`https://api.whatsapp.com/send?phone=+573502117928&text=${mensaje}`
+    Enviar.setAttribute('href',`${what}`)
+    console.log(mensaje)
+  }
+}
 
 function DataRecolect(e) {
   let elemento = e.target.parentElement.parentElement;
