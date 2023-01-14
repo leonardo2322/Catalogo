@@ -4,7 +4,7 @@ let productos = [];
 let listaProductos = document.querySelector("#listaProductos");
 let btnVaciarCarrito = document.querySelector("#btn-Vaciar");
 let tablaCarrito = document.querySelector("#tabla-carrito");
-let count = 1;
+let count = 0;
 let contar = 1;
 let totalCompraID = document.querySelector("#totalID");
 
@@ -50,7 +50,7 @@ function traerDatos() {
         <div class="card" style=";">
           <div class="row">
             
-              <img src="${item.imagen}" class=" img-fluid" id="img-cards" style="width:6rem" alt="${item.imagen}" />
+              <img src="${item.imagen}" class="img-fluid" id="img-cards" style="width:6rem" alt="${item.imagen}" />
            
             <div class="col">
               <div class="card-body">
@@ -157,6 +157,8 @@ function guardarProductosLocalStorage(producto) {
 }
 
 function insertarCarrito(producto) {
+  count++
+  console.log(count)
   const row = document.createElement("tr");
   /* row.classList.add('trCar') */
   row.innerHTML = `
@@ -196,6 +198,7 @@ function insertarCarrito(producto) {
 
 function vaciarCarrito(e) {
   e.preventDefault();
+  count=0
   while (listaProductos.firstChild) {
     listaProductos.removeChild(listaProductos.firstChild);
   }
@@ -209,6 +212,9 @@ function vaciarLocalStorage() {
 }
 
 function eliminarProducto(e) {
+  count--
+  console.log(count)
+
   console.log(e.target)
   if (e.target.classList.contains("delete-P")) {
     e.preventDefault();
@@ -258,9 +264,7 @@ function eliminarProductoLocalStorage(productoID) {
   productosLS.forEach(function (productoLS, index) {
     if (productoLS.id === productoID) {
       productosLS.splice(index, 1);
-      console.log(localStorage.getItem('productos').length)
-      if (localStorage.getItem('productos').length == 243 && localStorage.length == 1 ) {
-        console.log('aca')
+      if (count==0) {
         totalCompraID.value= 0
       }
     }
