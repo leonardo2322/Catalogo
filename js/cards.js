@@ -16,7 +16,6 @@ function evaluar(e) {
   } else if (e.target.classList.contains("cant-mas")) {
     e.target.parentElement.parentElement.parentElement.childNodes[5]
       .childNodes[0].value++;
-      console.log(e.target.parentElement.parentElement.parentElement.childNodes[7].textContent)
       let valorDelElemento = parseInt(e.target.parentElement.parentElement.parentElement.childNodes[7].textContent)
       let suma = parseInt(totalCompraID.value) + valorDelElemento
       totalCompraID.value = suma
@@ -250,7 +249,7 @@ function eliminarProducto(e) {
   console.log(e.target)
   if (e.target.classList.contains("delete-P")) {
     e.preventDefault();
-
+    let cantp = e.target.parentElement.parentElement.parentElement.childNodes[5].childNodes[0].value
     let producto, productoID;
     e.target.parentElement.parentElement.parentElement.remove();
     producto = e.target.parentElement.parentElement;
@@ -260,7 +259,8 @@ function eliminarProducto(e) {
       e.target.parentElement.parentElement.parentElement.childNodes[7]
         .textContent
     );
-    let restando = parseInt(totalCompraID.value) - precio;
+    let resta = parseInt(cantp) * parseInt(precio)
+    let restando = parseInt(totalCompraID.value) - resta;
     totalCompraID.value = restando;
     eliminarProductoLocalStorage(productoID);
   }else if(e.target.classList.contains('cant-menos')){
