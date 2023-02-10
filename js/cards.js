@@ -2,6 +2,7 @@ const containCards = document.querySelector(".accordion-body");
 const CntBandejas = document.querySelector("#acord-Bandejas");
 const sencillos = document.getElementById('sencillos')
 const inputEspesification = document.getElementById('inpE')
+let conteo = 0
 let productos = [];
 let listaProductos = document.querySelector("#listaProductos");
 let btnVaciarCarrito = document.querySelector("#btn-Vaciar");
@@ -132,12 +133,15 @@ function whatsappSend(e) {
       }
       iterator++
     }
+
       
-    let mensaje = `hola 👋 te hablamos https://leonardo2322.github.io/Catalogo/index.html colombia \n tipo de servicio: {validar Con nuestro equipo}🤝 \n Estado del Pago: no pagado💳 \n Pedido ✍:Por el catalogo digital \n especificacion Del Pedido: ${textoEspeci} costo total de la compra: ${totalCompraID.value} 💸 `
+    let mensaje = `Orden N:${conteo} hola 👋 te hablamos https://leonardo2322.github.io/Catalogo/index.html colombia \n tipo de servicio: {validar Con nuestro equipo}🤝 \n Estado del Pago: no pagado💳 \n Pedido ✍:Por el catalogo digital \n especificacion Del Pedido: ${textoEspeci} costo total de la compra: ${totalCompraID.value} 💸 `
     iterator = 1
     let texto = mensaje + "  "+"Especificacion para los platos: " + inputEspesification.value + "   envia este mensaje te atenderemos enseguida"
     let what =`https://api.whatsapp.com/send?phone=+573502117928&text=${texto}`
     inputEspesification.value =  ""
+    conteo++
+    console.log(conteo)
     vaciarLocalStorage()
 
     Enviar.setAttribute('href',`${what}`)
