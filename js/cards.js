@@ -2,8 +2,8 @@ const containCards = document.querySelector(".accordion-body");
 const CntBandejas = document.querySelector("#acord-Bandejas");
 const sencillos = document.getElementById('sencillos')
 const inputEspesification = document.getElementById('inpE')
-let conteo = 0
-let productos = [];
+let conteo = Math.round(Math.random()*2557)
+let productos  =[];
 let listaProductos = document.querySelector("#listaProductos");
 let btnVaciarCarrito = document.querySelector("#btn-Vaciar");
 let tablaCarrito = document.querySelector("#tabla-carrito");
@@ -140,8 +140,7 @@ function whatsappSend(e) {
     let texto = mensaje + "  "+"Especificacion para los platos: " + inputEspesification.value + "   envia este mensaje te atenderemos enseguida"
     let what =`https://api.whatsapp.com/send?phone=+573502117928&text=${texto}`
     inputEspesification.value =  ""
-    conteo++
-    console.log(conteo)
+
     vaciarLocalStorage()
 
     Enviar.setAttribute('href',`${what}`)
