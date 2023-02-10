@@ -133,9 +133,9 @@ function whatsappSend(e) {
       iterator++
     }
       
-    let mensaje = `hola 👋 te hablamos https://leonardo2322.github.io/Catalogo/index.html colombia \n tipo de servicio: {validar Con nuestro equipo}🤝 \n Estado del Pago: no pagado💳 \n Pedido ✍:Por el catalogo digital \n especificacion Del Pedido: ${textoEspeci} costo total de la compra: ${totalCompraID.value} 💸 envia este mensaje te atenderemos enseguida`
+    let mensaje = `hola 👋 te hablamos https://leonardo2322.github.io/Catalogo/index.html colombia \n tipo de servicio: {validar Con nuestro equipo}🤝 \n Estado del Pago: no pagado💳 \n Pedido ✍:Por el catalogo digital \n especificacion Del Pedido: ${textoEspeci} costo total de la compra: ${totalCompraID.value} 💸 `
     iterator = 1
-    let texto = mensaje + "  " + inputEspesification.value
+    let texto = mensaje + "  "+"Especificacion para los platos: " + inputEspesification.value + "   envia este mensaje te atenderemos enseguida"
     let what =`https://api.whatsapp.com/send?phone=+573502117928&text=${texto}`
     inputEspesification.value =  ""
     Enviar.setAttribute('href',`${what}`)
