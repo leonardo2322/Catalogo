@@ -1,6 +1,7 @@
 const containCards = document.querySelector(".accordion-body");
 const CntBandejas = document.querySelector("#acord-Bandejas");
 const sencillos = document.getElementById('sencillos')
+const inputEspesification = document.getElementById('inpE')
 let productos = [];
 let listaProductos = document.querySelector("#listaProductos");
 let btnVaciarCarrito = document.querySelector("#btn-Vaciar");
@@ -134,10 +135,10 @@ function whatsappSend(e) {
       
     let mensaje = `hola 👋 te hablamos https://leonardo2322.github.io/Catalogo/index.html colombia \n tipo de servicio: {validar Con nuestro equipo}🤝 \n Estado del Pago: no pagado💳 \n Pedido ✍:Por el catalogo digital \n especificacion Del Pedido: ${textoEspeci} costo total de la compra: ${totalCompraID.value} 💸 envia este mensaje te atenderemos enseguida`
     iterator = 1
-
-    let what =`https://api.whatsapp.com/send?phone=+573502117928&text=${mensaje}`
+    let texto = mensaje + "  " + inputEspesification.value
+    let what =`https://api.whatsapp.com/send?phone=+573502117928&text=${texto}`
+    inputEspesification.value =  ""
     Enviar.setAttribute('href',`${what}`)
-    console.log(mensaje)
   }
 }
 
@@ -261,6 +262,7 @@ function insertarCarrito(producto) {
 
 function vaciarCarrito(e) {
   e.preventDefault();
+  inputEspesification.value=""
   count=0
   while (listaProductos.firstChild) {
     listaProductos.removeChild(listaProductos.firstChild);
