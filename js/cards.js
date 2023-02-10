@@ -139,6 +139,8 @@ function whatsappSend(e) {
     let what =`https://api.whatsapp.com/send?phone=+573502117928&text=${texto}`
     inputEspesification.value =  ""
     Enviar.setAttribute('href',`${what}`)
+    vaciarCarrito()
+
   }
 }
 
