@@ -1,5 +1,16 @@
-[{
-    "bandejas":{
-        "tradicional":["chicharron","pechuga","res"]
-    }
-}]
+[
+  {
+    "acompanantes": "arroz, ensalada, tajada de maduro, papas y yuca sudada",
+    "bebidaysopa": "Sopa y Sobre mesa",
+    "imagen": "img/robalo.jpg",
+    "titulo": "Robalo",
+    "precio": 17000
+  },
+  {
+    "acompanantes": "arroz, ensalada, tajada de maduro, papas y yuca sudada",
+    "bebidaysopa": "Sopa y Sobre mesa",
+    "imagen": "img/bagre.jpg",
+    "titulo": "Bagre",
+    "precio": 17000
+  }
+]

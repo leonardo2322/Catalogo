@@ -1,5 +1,6 @@
 const containCards = document.querySelector(".accordion-body");
 const CntBandejas = document.querySelector("#acord-Bandejas");
+const sencillos = document.getElementById('sencillos')
 let productos = [];
 let listaProductos = document.querySelector("#listaProductos");
 let btnVaciarCarrito = document.querySelector("#btn-Vaciar");
@@ -40,12 +41,43 @@ function traerDatos() {
 
   xhttp.send();
 
-  xhttp.onreadystatechange = function () {
+  xhttp.onreadystatechange = function () {  
     if (this.readyState == 4 && this.status == 200) {
       let datos = JSON.parse(this.responseText);
       containCards.innerHTML = "";
       for (let item of datos) {
         containCards.innerHTML += `
+        <div class="card" style=";">
+          <div class="row">
+            
+              <img src="${item.imagen}" class="img-fluid" id="img-cards" style="width:6rem" alt="${item.imagen}" />
+           
+            <div class="col">
+              <div class="card-body">
+                <h5 class="card-title">${item.titulo}</h5>
+                <p class="card-text">${item.acompanantes}</p>
+                <p class="card-text">${item.bebidaysopa}</p>
+                <p class="card-text">
+                  <small class="text-muted">${item.precio}</small>
+                </p>
+                <a href="#" class="addCart ">+</a>
+              </div>
+            </div>
+          </div>
+        </div>`;
+      }
+    }
+  };
+
+  const xhttp2 = new XMLHttpRequest();
+  xhttp2.open("GET", "json/api.json", true);
+  xhttp2.send();
+  xhttp2.onreadystatechange = function () {  
+    if (this.readyState == 4 && this.status == 200) {
+      let datos = JSON.parse(this.responseText);
+      sencillos.innerHTML = "";
+      for (let item of datos) {
+        sencillos.innerHTML += `
         <div class="card" style=";">
           <div class="row">
             

@@ -202,11 +202,39 @@ input[type=number]::-webkit-outer-spin-button {
     width: 1.5rem ;
     border: none;
 }
+.h5E{
+    background: linear-gradient(270deg, #3f5efb,#fc466b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-align: center;
+}
+.inpEspecification{
+    background-color: #212121;
+    width: 90%;
+    color: #fff;
+    padding: 10px;
+    font-size: .9rem;
 
+    /* text-align: center; */
+    border: 2px solid white;
+    border-radius: 5px;
+    /* box-shadow: 3px 3px 2px rgb(249, 255, 85); */
+}
+.inpEspecification:focus{
+    color: #fff;
+    background-color: #212121;
+    outline-color: rgb(0, 64, 241);
+    box-shadow: -3px -3px 15px rgb(0, 64, 241);
+    transition: .1s;
+    transition-property: box-shadow;
+}
 .anterior_carousel{
     background:none;
     border: none;
 }
+
 .siguiente_carousel{
     background:none;
     border: none;
